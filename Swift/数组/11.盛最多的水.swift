@@ -7,22 +7,21 @@
 
 class Solution {
     func maxArea(_ height: [Int]) -> Int {
-        var maxArea = 0
-        var left = 0
+        var maxRes = 0
+        var let = 0
         var right = height.count - 1
         
-        white (left < right) {
-            
+        while (left < right) {
             let minHeight = min(height[left], height[right])
             
-            maxArea = max(maxArea, (right - left) * minHeight)
+            maxRes = max(maxRes, (right - left) * minHeight)
             
-            if minHeight == left {
+            if minHeight == height[left] {
                 left += 1
             } else {
                 right -= 1
             }
         }
-        return maxArea
+        return maxRes
     }
 }
